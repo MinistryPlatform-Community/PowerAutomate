@@ -312,8 +312,8 @@
           }
         },
         "operationId": "Communication_Email_POST",
-        "description": "Create new communication, immediately render and schedule for delivery.",
-        "summary": "Create Email Communication",
+        "description": "Create new communication, immediately render and schedule for delivery. (Email and SMS)",
+        "summary": "Create Communication",
         "parameters": [
           {
             "name": "Content-Type",
