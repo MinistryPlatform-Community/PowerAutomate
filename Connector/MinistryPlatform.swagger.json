@@ -1,0 +1,482 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MinistryPlatform",
+    "description": "PowerAutomate Connector for MinistryPlatform by ACST",
+    "version": "1.0"
+  },
+  "host": "mpi.ministryplatform.com",
+  "basePath": "/ministryplatformapi",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/tables": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Table Schema",
+        "description": "Returns the list of tables to the current user with basic metadata.",
+        "operationId": "Tables_GET",
+        "parameters": []
+      }
+    },
+    "/tables/{table}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "TABLE Get Collection",
+        "description": "Returns a collection of records from a table.",
+        "operationId": "Table_Record_Collection_GET",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "TABLE Create Records",
+        "description": "Creates new records in the specified table.",
+        "operationId": "Table_Records_POST",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The table name that the records will be created against"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "TABLE Update Record",
+        "description": "Updates provided records in the specified table.",
+        "operationId": "Table_Records_PUT",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$allowCreate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/procs/{stored_procedure_name}": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "PROC Execute Stored Procedure",
+        "description": "Executes the requested stored procedure with provided parameters.",
+        "operationId": "Proc_Execute_StoredProcedure_POST",
+        "parameters": [
+          {
+            "name": "stored_procedure_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the 'api_' stored procedure registrered in MinistryPlatform"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "{ParameterName}": {
+                  "type": "string",
+                  "description": "{ParameterName}"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/tables/{table}/{id}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "TABLE Get Record",
+        "description": "Returns a single record from the specified table by the record's primary key value.",
+        "operationId": "Table_Record_GET",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Table to retrieve records from."
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Record identifier / primary key identifier of record to return."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Specify the fields to be returned for the selected record."
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          }
+        ]
+      }
+    },
+    "/procs": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "operationId": "Proc_Procs_GET",
+        "summary": "Proc List Procedures",
+        "parameters": [
+          {
+            "name": "$search",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Search",
+            "x-ms-summary": "Used to filter the list of returned stored procedures.  The '*' character can be used as a wildcard."
+          }
+        ],
+        "description": "Returns the list of procedures available to the current user with basic metadata."
+      }
+    },
+    "/communications": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "operationId": "Communication_Email_POST",
+        "description": "Create new communication, immediately render and schedule for delivery.",
+        "summary": "Create Email Communication",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "AuthorUserId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The UserID of the User that is used to send this communication",
+                  "title": "AuthorUserID",
+                  "x-ms-visibility": "important"
+                },
+                "Subject": {
+                  "type": "string",
+                  "description": "Subject line of the email or the content of the SMS message",
+                  "title": "Subject",
+                  "x-ms-visibility": "important"
+                },
+                "Body": {
+                  "type": "string",
+                  "description": "Body content of the communication",
+                  "title": "Body",
+                  "x-ms-visibility": "important"
+                },
+                "FromContactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The contact from whom the communication is sent",
+                  "title": "FromContactId"
+                },
+                "ReplyToContactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The ID of the Contact record which should be used in replies",
+                  "title": "ReplyToContactId",
+                  "x-ms-visibility": "important"
+                },
+                "Contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32",
+                    "title": "",
+                    "x-ms-visibility": "important"
+                  },
+                  "description": "Contact IDs of those that should receive this communication"
+                },
+                "IsBulkEmail": {
+                  "type": "boolean",
+                  "description": "This message is bulk",
+                  "title": "IsBulkEmail",
+                  "enum": [
+                    true,
+                    false
+                  ],
+                  "x-ms-visibility": "advanced"
+                },
+                "CommunicationType": {
+                  "type": "string",
+                  "description": "The type of communication (Email, SMS)",
+                  "title": "CommunicationType",
+                  "default": "Email",
+                  "enum": [
+                    "Email",
+                    "SMS"
+                  ],
+                  "x-ms-visibility": "advanced"
+                },
+                "TextPhoneNumberId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The ID of the Outbound SMS Number (Required for SMS)",
+                  "title": "TextPhoneNumberId",
+                  "x-ms-visibility": "advanced"
+                },
+                "StartDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time for the message to be sent in this format (2017-07-21T17:32:28Z)",
+                  "title": "StartDate",
+                  "x-ms-visibility": "advanced"
+                }
+              },
+              "required": [
+                "CommunicationType",
+                "AuthorUserId",
+                "FromContactId",
+                "Subject",
+                "ReplyToContactId",
+                "Body"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/files/{UniqueFileID}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Files_GET",
+        "description": "Returns File Attachments by UniqueID",
+        "operationId": "Files_GET",
+        "parameters": [
+          {
+            "name": "UniqueFileID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The Unique ID of the File"
+          },
+          {
+            "name": "$thumbnail",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "When set to true, this will return a system generated thumbnail of images instead of the full sized / original image."
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2-auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://mpi.ministryplatform.com/ministryplatformapi/oauth/connect/authorize",
+      "tokenUrl": "https://mpi.ministryplatform.com/ministryplatformapi/oauth/connect/token",
+      "scopes": {
+        "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all": "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2-auth": [
+        "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all"
+      ]
+    }
+  ],
+  "tags": []
+}
