@@ -2,6 +2,14 @@
 
 This project contains the MinistryPlatform Custom Connector that can be imported into PowerAutomate to enable simplified interactions between MinistryPlatform and PowerAutomate. Please note that all REST API endpoints are NOT available in this custom connector.
 
+## MP Icon
+
+If you want your custom connector to look really great, download the MinistryPlatform PowerAutomate Icon and upload it on your Custom Connector. This doesn't just look nice, it helps with quick identification of steps that are MP inside of a complex flow.
+
+![MP Icon](Assets/MP-Logo-Icon.png)
+
+[Download MP Icon](Assets/MP-Logo-Icon.png)
+
 ## Setup MinistryPlatform for PowerAutomate
 
 ## Installation
