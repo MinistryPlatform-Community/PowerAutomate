@@ -22,6 +22,11 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 ## Release History
 
+- 2024.3.6
+  - Corrected the Execute Stored Procedure Endpoint
+  - Updated most of the connector
+    - Adding Summaries, Descriptions, Help
+  - Added Stored Procedure Example Flow
 - 2024.2.26
   - Added Text Support to Communications Endpoint
   - Added GitHub Repository and Custom Connector

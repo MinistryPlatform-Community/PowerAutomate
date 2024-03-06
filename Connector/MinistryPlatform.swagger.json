@@ -15,6 +15,9 @@
   "paths": {
     "/tables": {
       "get": {
+        "tags": [
+          "Schema"
+        ],
         "responses": {
           "default": {
             "description": "default",
@@ -22,20 +25,23 @@
           }
         },
         "summary": "Get Table Schema",
-        "description": "Returns the list of tables to the current user with basic metadata.",
+        "description": "Returns the list of tables available to the current user with basic metadata.",
         "operationId": "Tables_GET",
         "parameters": []
       }
     },
     "/tables/{table}": {
       "get": {
+        "tags": [
+          "Tables"
+        ],
         "responses": {
           "default": {
             "description": "default",
             "schema": {}
           }
         },
-        "summary": "TABLE Get Collection",
+        "summary": "Get TABLE Collection",
         "description": "Returns a collection of records from a table.",
         "operationId": "Table_Record_Collection_GET",
         "parameters": [
@@ -43,47 +49,67 @@
             "name": "table",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The name of a MinistryPlatform Table.  This must a table registered in metadata.",
+            "x-ms-summary": "Table",
+            "x-ms-visibility": "important"
           },
           {
             "name": "$select",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-summary": "Select Fields",
+            "description": "A comma separated list of fields to return in the data.  This supports the MinistryPlatform _TABLE notation for accessing fields in other tables connected by foreign keys.",
+            "x-ms-visibility": "important"
           },
           {
             "name": "$filter",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "description": "Parameters and values to filter the returned collections of records",
+            "x-ms-summary": "Filter",
+            "x-ms-visibility": "important"
           },
           {
             "name": "$orderby",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-summary": "Order By",
+            "x-ms-visibility": "advanced"
           },
           {
             "name": "$top",
             "in": "query",
             "required": false,
-            "type": "integer"
+            "type": "integer",
+            "x-ms-summary": "Top",
+            "x-ms-visibility": "advanced"
           },
           {
             "name": "$skip",
             "in": "query",
             "required": false,
-            "type": "integer"
+            "type": "integer",
+            "x-ms-summary": "Skip",
+            "x-ms-visibility": "advanced"
           },
           {
             "name": "Accept",
             "in": "header",
-            "required": false,
-            "type": "string"
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "x-ms-visibility": "internal"
           }
         ]
       },
       "post": {
+        "tags": [
+          "Tables"
+        ],
         "responses": {
           "default": {
             "description": "default",
@@ -99,7 +125,17 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The table name that the records will be created against"
+            "description": "The name of a MinistryPlatform Table.  This must a table registered in metadata.",
+            "x-ms-summary": "Table"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "Select Fields",
+            "description": "A comma separated list of fields to return in the data.  This supports the MinistryPlatform _TABLE notation for accessing fields in other tables connected by foreign keys.",
+            "x-ms-visibility": "important"
           },
           {
             "name": "Content-Type",
@@ -130,6 +166,9 @@
         ]
       },
       "put": {
+        "tags": [
+          "Tables"
+        ],
         "responses": {
           "default": {
             "description": "default",
@@ -144,13 +183,18 @@
             "name": "table",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The name of a MinistryPlatform Table.  This must a table registered in metadata.",
+            "x-ms-summary": "Table"
           },
           {
             "name": "$select",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-summary": "Select Fields",
+            "description": "A comma separated list of fields to return in the data.  This supports the MinistryPlatform _TABLE notation for accessing fields in other tables connected by foreign keys.",
+            "x-ms-visibility": "advanced"
           },
           {
             "name": "$allowCreate",
@@ -187,65 +231,18 @@
         ]
       }
     },
-    "/procs/{stored_procedure_name}": {
-      "post": {
-        "responses": {
-          "default": {
-            "description": "default",
-            "schema": {}
-          }
-        },
-        "summary": "PROC Execute Stored Procedure",
-        "description": "Executes the requested stored procedure with provided parameters.",
-        "operationId": "Proc_Execute_StoredProcedure_POST",
-        "parameters": [
-          {
-            "name": "stored_procedure_name",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the 'api_' stored procedure registrered in MinistryPlatform"
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": "application/json"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": "application/json"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "{ParameterName}": {
-                  "type": "string",
-                  "description": "{ParameterName}"
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
     "/tables/{table}/{id}": {
       "get": {
+        "tags": [
+          "Tables"
+        ],
         "responses": {
           "default": {
             "description": "default",
             "schema": {}
           }
         },
-        "summary": "TABLE Get Record",
+        "summary": "Get TABLE Record",
         "description": "Returns a single record from the specified table by the record's primary key value.",
         "operationId": "Table_Record_GET",
         "parameters": [
@@ -254,42 +251,52 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Table to retrieve records from."
+            "description": "The name of a MinistryPlatform Table.  This must a table registered in metadata.",
+            "x-ms-summary": "Table",
+            "x-ms-visibility": "important"
           },
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Record identifier / primary key identifier of record to return."
+            "description": "Record identifier / primary key identifier of record to return.",
+            "x-ms-summary": "Record ID",
+            "x-ms-visibility": "important"
           },
           {
             "name": "$select",
             "in": "query",
             "required": false,
             "type": "string",
-            "description": "Specify the fields to be returned for the selected record."
+            "x-ms-summary": "Select Fields",
+            "description": "A comma separated list of fields to return in the data.  This supports the MinistryPlatform _TABLE notation for accessing fields in other tables connected by foreign keys.",
+            "x-ms-visibility": "important"
           },
           {
             "name": "Content-Type",
             "in": "header",
-            "required": false,
+            "required": true,
             "type": "string",
-            "default": "application/json"
+            "default": "application/json",
+            "x-ms-visibility": "internal"
           }
         ]
       }
     },
     "/procs": {
       "get": {
+        "tags": [
+          "Schema"
+        ],
         "responses": {
           "default": {
             "description": "default",
             "schema": {}
           }
         },
-        "operationId": "Proc_Procs_GET",
-        "summary": "Proc List Procedures",
+        "operationId": "GET_Stored_Procedures",
+        "summary": "List Stored Procedures and Parameters",
         "parameters": [
           {
             "name": "$search",
@@ -303,8 +310,65 @@
         "description": "Returns the list of procedures available to the current user with basic metadata."
       }
     },
+    "/procs/{stored_procedure}": {
+      "post": {
+        "tags": [
+          "Procedures"
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Execute Stored Procedure",
+        "operationId": "Execute_Procedure",
+        "parameters": [
+          {
+            "name": "stored_procedure",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the 'api_' stored procedure registrered in MinistryPlatform",
+            "x-ms-summary": "Stored Procedure",
+            "x-ms-visibility": "important"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "description": "Parameters to be used for calling stored procedure.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "x-ms-visibility": "important"
+            },
+            "x-ms-visibility": "important"
+          }
+        ],
+        "description": "Executes a Stored Procedure with or without parameters"
+      }
+    },
     "/communications": {
       "post": {
+        "tags": [
+          "Communications"
+        ],
         "responses": {
           "default": {
             "description": "default",
@@ -429,6 +493,9 @@
     },
     "/files/{UniqueFileID}": {
       "get": {
+        "tags": [
+          "Files"
+        ],
         "responses": {
           "default": {
             "description": "default",
@@ -457,7 +524,12 @@
       }
     }
   },
-  "definitions": {},
+  "definitions": {
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  },
   "parameters": {},
   "responses": {},
   "securityDefinitions": {
