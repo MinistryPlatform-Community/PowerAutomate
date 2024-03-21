@@ -31,6 +31,9 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 ## Release History
 
+- 2024.3.21
+  - Updated SMS Test PowerAutomate Example
+  - Updated Email Test PowerAutomate Example
 - 2024.3.6
   - Corrected the Execute Stored Procedure Endpoint
   - Updated most of the connector
