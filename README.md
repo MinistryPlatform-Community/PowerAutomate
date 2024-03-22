@@ -31,6 +31,9 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 ## Release History
 
+- 2024.3.22
+  - Updated Connector to provide Common Tables as dropdown
+  - Added Utility - Get Table List as example of how create list of table schema from MP
 - 2024.3.21
   - Updated SMS Test PowerAutomate Example
   - Updated Email Test PowerAutomate Example
