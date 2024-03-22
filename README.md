@@ -14,6 +14,8 @@ If you want your custom connector to look really great, download the MinistryPla
 
 ## Installation
 
+Installation instructions coming soon! There are several webinars available in the MP Community for help on setting up PowerAutomate and MinistryPlatform.
+
 ## Update Custom Connector
 
 You can update a MP Custom Connector with an updated definition by downloading the latest definition and then using that definition to do a quick update.
