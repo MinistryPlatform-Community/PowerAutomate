@@ -33,6 +33,8 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 ## Release History
 
+- 2024.4.1
+  - Corrected a structural error with OAuth in the connector
 - 2024.3.22
   - Updated Connector to provide Common Tables as dropdown
   - Added Utility - Get Table List as example of how create list of table schema from MP

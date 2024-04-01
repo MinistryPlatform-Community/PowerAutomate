@@ -3,7 +3,7 @@
   "info": {
     "title": "MinistryPlatform",
     "description": "PowerAutomate Connector for MinistryPlatform by ACST",
-    "version": "2.0"
+    "version": "1.0"
   },
   "host": "mpi.ministryplatform.com",
   "basePath": "/ministryplatformapi",
@@ -1314,8 +1314,17 @@
       "flow": "accessCode",
       "authorizationUrl": "https://mpi.ministryplatform.com/ministryplatformapi/oauth/connect/authorize",
       "tokenUrl": "https://mpi.ministryplatform.com/ministryplatformapi/oauth/connect/token",
-      "scopes": "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all"
+      "scopes": {
+        "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all": "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all"
+      }
     }
   },
+  "security": [
+    {
+      "oauth2-auth": [
+        "openid offline_access http://www.thinkministry.com/dataplatform/scopes/all"
+      ]
+    }
+  ],
   "tags": []
 }
