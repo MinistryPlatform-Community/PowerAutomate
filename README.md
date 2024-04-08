@@ -24,7 +24,7 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 - Download the Defintion from Github [Download Connector](Connector/MinistryPlatform.swagger.json)
 - Open in some sort of text editor (VS Code, Notepad++, Notepad, etc)
-- Search and Replace the Hostname (mpi.ministryplatform.com) with your hostname ![alt text](Assets/UpdateConnectorStep2.png)
+- Search and Replace all instances of the Hostname (mpi.ministryplatform.com) with your hostname ![alt text](Assets/UpdateConnectorStep2.png)
 - Copy the updated JSON Definition
 - Paste this definition into the Custom Connector Swagger Editor ![Search and Replace](Assets/UpdateConnectorStep1.png) ![alt text](Assets/UpdateConnectorStep3.png)
 - Click the OK Button to convert JSON to YAML ![alt text](Assets/UpdateConnectorStep3a.png)
