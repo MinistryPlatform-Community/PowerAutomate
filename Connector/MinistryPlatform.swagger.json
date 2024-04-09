@@ -274,6 +274,22 @@
             "x-ms-visibility": "advanced"
           },
           {
+            "name": "$groupby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "Group By",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "$having",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "Having",
+            "x-ms-visibility": "advanced"
+          },
+          {
             "name": "$top",
             "in": "query",
             "required": false,
