@@ -33,6 +33,9 @@ You can update a MP Custom Connector with an updated definition by downloading t
 
 ## Release History
 
+- 2024.4.10
+  - Updated connector to support GroupBy and Having
+  - Minor updates to descriptions and summaries
 - 2024.4.1
   - Corrected a structural error with OAuth in the connector
 - 2024.3.22

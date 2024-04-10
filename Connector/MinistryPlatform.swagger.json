@@ -24,7 +24,7 @@
             "schema": {}
           }
         },
-        "summary": "Get Table Schema",
+        "summary": "Table Schema",
         "description": "Returns the list of tables available to the current user with basic metadata.",
         "operationId": "Tables_GET",
         "parameters": []
@@ -41,7 +41,7 @@
             "schema": {}
           }
         },
-        "summary": "Get TABLE Collection",
+        "summary": "Get Records from Table",
         "description": "Returns a collection of records from a table.",
         "operationId": "Table_Record_Collection_GET",
         "parameters": [
@@ -252,8 +252,8 @@
             "in": "query",
             "required": false,
             "type": "string",
-            "x-ms-summary": "Select Fields",
             "description": "A comma separated list of fields to return in the data.  This supports the MinistryPlatform _TABLE notation for accessing fields in other tables connected by foreign keys.",
+            "x-ms-summary": "Select Fields",
             "x-ms-visibility": "important"
           },
           {
@@ -271,14 +271,32 @@
             "required": false,
             "type": "string",
             "x-ms-summary": "Order By",
+            "description": "Fields that will affect the sorting order of the data.  Multiple fields can be used separated by \",\" commas.",
             "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "$groupby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Clause that divides the query result into groups of rows, usually by performing one or more aggregations on each group.",
+            "x-ms-summary": "Group By Field(s)"
+          },
+          {
+            "name": "$having",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "Having Value",
+            "description": "Specifies a search condition for a group or an aggregate. HAVING is typically used with a GROUP BY clause. When GROUP BY is not used, there is an implicit single, aggregated group."
           },
           {
             "name": "$top",
             "in": "query",
             "required": false,
             "type": "integer",
-            "x-ms-summary": "Top",
+            "description": "The number of records to return.",
+            "x-ms-summary": "Top records to return",
             "x-ms-visibility": "advanced"
           },
           {
@@ -286,8 +304,41 @@
             "in": "query",
             "required": false,
             "type": "integer",
-            "x-ms-summary": "Skip",
+            "description": "The number of records to skip before records are included in results.  Useful for larger datasets and paging when combined with $top.",
+            "x-ms-summary": "Number of records to skip",
             "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "$distinct",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "enum": [
+              "",
+              true,
+              false
+            ],
+            "x-ms-visibility": "advanced",
+            "description": "Return only unique rows",
+            "x-ms-summary": "Get Distinct Rows"
+          },
+          {
+            "name": "$userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "x-ms-visibility": "advanced",
+            "description": "UserId to be used for Global Filter",
+            "x-ms-summary": "UserId to be used for Global Filter"
+          },
+          {
+            "name": "$globalFilterId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "x-ms-visibility": "advanced",
+            "description": "Global Filter Record ID used in conjunction with UserId to limit results",
+            "x-ms-summary": "Global Filter ID"
           },
           {
             "name": "Accept",
@@ -309,7 +360,7 @@
             "schema": {}
           }
         },
-        "summary": "TABLE Create Records",
+        "summary": "Create Records in Table",
         "description": "Creates new records in the specified table.",
         "operationId": "Table_Records_POST",
         "parameters": [
@@ -561,7 +612,7 @@
             "schema": {}
           }
         },
-        "summary": "TABLE Update Record",
+        "summary": "Update Records in Table",
         "description": "Updates provided records in the specified table.",
         "operationId": "Table_Records_PUT",
         "parameters": [
@@ -821,7 +872,7 @@
             "schema": {}
           }
         },
-        "summary": "Get TABLE Record",
+        "summary": "Get Record from Table",
         "description": "Returns a single record from the specified table by the record's primary key value.",
         "operationId": "Table_Record_GET",
         "parameters": [
@@ -1278,7 +1329,7 @@
             "schema": {}
           }
         },
-        "summary": "Files_GET",
+        "summary": "Get File by UniqueID",
         "description": "Returns File Attachments by UniqueID",
         "operationId": "Files_GET",
         "parameters": [
