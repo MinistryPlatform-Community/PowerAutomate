@@ -31,7 +31,7 @@ In this example, we are showing that Web_First_Name and Web_Last_Name will alway
 * Remove [] from sample payloads so that PowerAutomate understands you're working with a single-object and not an array.
 
 
-## Input Sanitization
+# Input Sanitization
 * End-Users will ruin anything you let them touch. OK, just kidding. But you do need to always be thinking about sanitizing user-input, especially as it relates to special characters used in JSON like a `"` . A double-quote showing up in the middle of a field used to build an Adaptive Card can really wreak havoc.
 
 ```
