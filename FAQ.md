@@ -56,7 +56,7 @@ There are fancier ways, such as [this approach](https://www.tachytelic.net/2020/
   Display_Name: "Testperson, Tay",
   Email_Address: "taylor@fakemail.com",
   Contact_Status_ID: 1,
-  Mobile_Phone: '555-867-5309',
+  Mobile_Phone: "555-867-5309",
   Household_ID:  {
       Household_Name: "Testperson",
       Address_ID: {
@@ -96,7 +96,7 @@ There are fancier ways, such as [this approach](https://www.tachytelic.net/2020/
     "Donor_Record": null,
     "Contact_Methods": null,
     "Email_Address": "taylor@fakemail.com",
-    "Mobile_Phone": '574-867-5309',
+    "Mobile_Phone": "574-867-5309",
     "Company_Phone": null,
     "Pager_Phone": null,
     "Fax_Phone": null,
