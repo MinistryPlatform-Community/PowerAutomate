@@ -2,34 +2,32 @@
 
 This document contains tips, tricks, and answers to many questions our community has come up with. This is a frequently updated document. If you feel something is missing, please fork the repo and submit a pull request!
 
-## Allowing nulls
+## Handling Null Values
 
-If a field used in your SELECT may be returned empty, it's important to indicate as such in the Schema definition. Use square brackets around the `type` and add null like this:
+If a field used in your SELECT may be returned with a null value, it's important to indicate as such in the Schema definition. To allow null values, update the schema definition by adding square brackets around the `type` and add null like this:
 
 ```
 "My_Field_Name": { "type": ["string", "null"] }
 ```
 
+Failing to do this will cause your flow to fail when it encounters a _null_ value.
+
 In this example, we are showing that Web_First_Name and Web_Last_Name will always have a value, but Web_Email might be empty.
 
 ```json
 {
-    "type": "object",
-    "properties": {
-        "Web_First_Name": {
-            "type": "string"
-        },
-        "Web_Last_Name": {
-            "type": "string"
-        },
-        "Web_Email": {
-            "type": [
-                "string",
-                "null"
-            ]
-        }
-        }
+  "type": "object",
+  "properties": {
+    "Web_First_Name": {
+      "type": "string"
+    },
+    "Web_Last_Name": {
+      "type": "string"
+    },
+    "Web_Email": {
+      "type": ["string", "null"]
     }
+  }
 }
 ```
 
